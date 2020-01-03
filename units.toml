@@ -1,5 +1,8 @@
+# All units specified in the conversion table MUST ALSO be included in this unit table!
+
 [units]
-# plural_form = ["singular form",  "alias 1", "alias 2", ...]
+# Format: plural_form = ["singular form",  "alias 1", "alias 2", ...]
+# The plural form must be quoted if it contains spaces, dots, or other special characters
 
 # Time
 nanoseconds = ["nanosecond",  "ns", "nsec"]
@@ -109,8 +112,13 @@ tablespoons = ["tablespoon",  "T", "TB", "Tbl", "Tbsp"]
 
 
 [conversions]
-# "[from amount] [from unit]", '[to amount] [to unit]"
+# Format: "[from amount] [from unit]", '[to amount] [to unit]",
 # Plural units are used here for simplicity, even for singular amounts
+# Scientific notation in the form 6.23e23 is supported (e-X works for negative numbers)
+# Underscores may be used as separators (NOT commas or dots) to make large numbers more readable
+# Example entries demonstrating all the above criteria:
+#   "1 moles", "6.0221409e+23 molecules",
+#   "1 moles", "602_214_090_000_000_006_225_920 molecules"
 table = [
     # Time
     "1 microseconds", "1000 nanoseconds",
@@ -154,7 +162,7 @@ table = [
 
     # Energy
     "1000 joules", "1 kilojoules",
-    "1 joules", "6242000000000000000 electronvolts",
+    "1 joules", "6_241_509_744_511_500_288 electronvolts",
 
     # Power
     "1000 milliwatts", "1 watts",

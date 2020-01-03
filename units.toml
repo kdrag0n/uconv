@@ -110,6 +110,10 @@ quarts = ["quart",  "qt"]
 gallons = ["gallon",  "gal"]
 tablespoons = ["tablespoon",  "T", "TB", "Tbl", "Tbsp"]
 
+# Particles
+moles = ["mole",  "mol"]
+molecules = ["molecule"]
+
 
 [conversions]
 # Format: "[from amount] [from unit]", '[to amount] [to unit]",
@@ -220,4 +224,7 @@ table = [
     "4 quarts", "1 gallons",
     "256 tablespoons", "1 gallons",
     "3 teaspoons", "1 tablespoons",
+
+    # Particles
+    "1 moles", "6.0221409e+23 molecules",
 ]

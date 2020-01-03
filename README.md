@@ -8,7 +8,12 @@ An installation of Python 3.6 or newer is required.
 
 ## Usage
 
-The program accepts 3 command-line arguments: the amount to convert, the unit given amount is in, and the unit to convert the given amount into. There is no need to specify a category as the program uses a graph-based path-finding algorithm to find the shortest possible path between any two arbitrary units, should such a path exist. Impossible conversions, such as kilometers to watts (distance to power), will result in an error.
+The program accepts 3 command-line arguments: the amount to convert, the unit
+given amount is in, and the unit to convert the given amount into. There is no
+need to specify a category as the program uses a graph-based path-finding
+algorithm to find the shortest possible path between any two arbitrary units,
+should such a path exist. Impossible conversions, such as kilometers to watts
+(distance to power), will result in an error.
 
 Example commands:
 
@@ -22,7 +27,8 @@ Example usage:
 1 inch => 2.54 centimeters
 ```
 
-There is also a debug mode which can be activated with the `-d` argument that shows the path-finding and conversion process:
+There is also a debug mode which can be activated with the `-d` argument that
+shows the path-finding and conversion process:
 
 ```
 ❯ ./uconv.py -d 1 century ns
@@ -38,8 +44,12 @@ Converting 3,155,760,000,000,000 microseconds -> 3,155,760,000,000,000,000 nanos
 1 century => 3,155,760,000,000,000,000 nanoseconds
 ```
 
-Help regarding usage is available with the `-h` or `--help` arguments should you ever get stuck.
+Help regarding usage is available with the `-h` or `--help` arguments should you
+ever be left stranded.
 
 ## Custom Units
 
-Custom units can be added easily by editing the `units.toml` file, which is written in [TOML](https://learnxinyminutes.com/docs/toml/) — a simple and standardized configuration format. Everything is documented thoroughly by comments in the file. Blatantly incorrect data, such as invalid syntax or duplicate units, will be detected and reported when the file is being parsed.
+Custom units can be added easily by editing the `units.toml` file, which is
+written in [TOML](https://learnxinyminutes.com/docs/toml/) — a simple and standardized configuration format. Everything is documented thoroughly by
+comments in the file. Blatantly incorrect data, such as invalid syntax or
+duplicate units, will be detected and reported when the file is being parsed.

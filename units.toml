@@ -89,6 +89,7 @@ tons = ["ton",  "T"]
 pascals = ["pascal",  "Pa"]
 bars = ["bar",  "Bar"]
 torr = ["torr",  "Torr"]
+atmospheres = ["atmosphere",  "atm"]
 
 # Volume (metric)
 milliliters = ["milliliter",  "mL"]

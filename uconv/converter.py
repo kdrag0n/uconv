@@ -19,7 +19,8 @@ class Converter:
 
         amount = from_amount
         for conv in path:
-            self.dbg(f"Converting {amount} {conv.from_unit} -> {conv.convert(amount)} {conv.to_unit}")
-            amount = conv.convert(amount)
+            converted = conv.convert(amount)
+            self.dbg(f"Converting {conv.from_unit.render(amount)} -> {conv.to_unit.render(converted)}")
+            amount = converted
 
         return amount

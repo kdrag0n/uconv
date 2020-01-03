@@ -155,7 +155,6 @@ table = [
 
     # Power
     "1000 milliwatts", "1 watts",
-    "1000 watts", "1 kilojoules per second",
     "1000 watts", "1 kilowatts",
     "1000 kilowatts", "1 megawatts",
     "1000 megawatts", "1 gigawatts",

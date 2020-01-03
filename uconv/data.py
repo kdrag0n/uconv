@@ -15,7 +15,7 @@ class Unit:
     def render(self, amount):
         name = self.singular_name if amount == 1 else self.plural_name
         amount_val = int(amount) if amount.is_integer() else amount
-        return f"{amount_val} {name}"
+        return f"{amount_val:n} {name}"
 
     # Note: there's no need for a custom hash implementation since we only ever create a single instance of each unit
 

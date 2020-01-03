@@ -1,4 +1,5 @@
 import argparse
+import locale
 
 from . import ansi, parser
 from .converter import Converter
@@ -18,6 +19,9 @@ def parse_args():
 
 
 def main():
+    # Set locale for localized number formatting
+    locale.setlocale(locale.LC_ALL, "")
+
     args = parse_args()
     units, graph = parser.parse_table("units.toml")
 

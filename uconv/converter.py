@@ -13,9 +13,11 @@ class Converter:
 
     def convert(self, from_amount, from_unit, to_unit):
         path = search.find_shortest_path(self.graph, from_unit, to_unit)
-        self.dbg(f"Found conversion path: {path}")
         if path is None:
             return None
+
+        friendly_path = ", ".join(map(str, path))
+        self.dbg(f"Found conversion path: {friendly_path}")
 
         amount = from_amount
         for conv in path:

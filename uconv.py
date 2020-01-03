@@ -2,4 +2,4 @@
 
 from uconv.main import main
 
-main()
+exit(main())

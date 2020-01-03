@@ -47,9 +47,13 @@ Converting 3,155,760,000,000,000 microseconds -> 3,155,760,000,000,000,000 nanos
 Help regarding usage is available with the `-h` or `--help` arguments should you
 ever be left stranded.
 
-## Custom Units
+## Units
+
+All imperial units specified in the default unit conversion table are US
+variants, where applicable (such as for volume).
 
 Custom units can be added easily by editing the `units.toml` file, which is
-written in [TOML](https://learnxinyminutes.com/docs/toml/) — a simple and standardized configuration format. Everything is documented thoroughly by
+written in [TOML](https://learnxinyminutes.com/docs/toml/) — a simple and
+standardized configuration format. Everything is documented thoroughly by
 comments in the file. Blatantly incorrect data, such as invalid syntax or
 duplicate units, will be detected and reported when the file is being parsed.

@@ -1,10 +1,25 @@
-class Unit:
+import abc
+
+
+class TupleHash(abc.ABC):
+    @abc.abstractmethod
+    def to_tuple(self):
+        pass
+
+    def __hash__(self):
+        return hash(self.to_tuple())
+
+    def __eq__(self, other):
+        return self.to_tuple() == other.to_tuple()
+
+
+class Unit(TupleHash):
     """Information about a single unit."""
 
     def __init__(self, plural_name, singular_name, aliases):
         self.plural_name = plural_name
         self.singular_name = singular_name
-        self.aliases = aliases
+        self.aliases = tuple(aliases)
 
     def __str__(self):
         return self.plural_name
@@ -17,10 +32,11 @@ class Unit:
         amount_val = int(amount) if amount.is_integer() else amount
         return f"{amount_val:n} {name}"
 
-    # Note: there's no need for a custom hash implementation since we only ever create a single instance of each unit
+    def to_tuple(self):
+        return self.singular_name, self.plural_name, self.aliases
 
 
-class Conversion:
+class Conversion(TupleHash):
     """Information about a single conversion between two units, used as links in the graph."""
 
     def __init__(self, from_amount, from_unit, to_amount, to_unit):
@@ -39,3 +55,6 @@ class Conversion:
 
     def convert(self, amount):
         return amount * self.factor
+
+    def to_tuple(self):
+        return self.from_unit, self.to_unit, self.factor

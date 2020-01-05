@@ -55,7 +55,7 @@ class CompoundUnit(TupleHash):
         return f"CompoundUnit(units={self.units})"
 
     def render(self, amount):
-        name = self.render_name(amount == 1)
+        name = self.render_name(amount != 1)
         amount_val = int(amount) if amount.is_integer() else amount
         return f"{amount_val:n} {name}"
 

@@ -130,7 +130,7 @@ molecules = ["molecule"]
 
 [conversions]
 # Format: "[from amount] [from unit]", '[to amount] [to unit]",
-# Plural units are used here for simplicity, even for singular amounts
+# Any unit aliases defined in the table above can be used here.
 # Scientific notation in the form 6.23e23 is supported (e-X works for negative numbers)
 # Underscores may be used as separators (NOT commas or dots) to make large numbers more readable
 # Example entries demonstrating all the above criteria:
@@ -138,66 +138,66 @@ molecules = ["molecule"]
 #   "1 moles", "602_214_090_000_000_006_225_920 molecules"
 table = [
     # Time
-    "1 microseconds", "1000 nanoseconds",
-    "1 milliseconds", "1000 microseconds",
-    "1 seconds", "1000 milliseconds",
-    "60 seconds", "1 minutes",
-    "60 minutes", "1 hours",
-    "24 hours", "1 days",
-    "7 days", "1 weeks",
-    "365.25 days", "1 years",
-    "30.4167 weeks", "1 months",
-    "52 weeks", "1 years",
-    "12 months", "1 years",
-    "10 years", "1 decades",
-    "100 years", "1 centuries",
-    "1000 years", "1 millennia",
+    "1 microsecond", "1000 nanoseconds",
+    "1 millisecond", "1000 microseconds",
+    "1 second", "1000 milliseconds",
+    "60 seconds", "1 minute",
+    "60 minutes", "1 hour",
+    "24 hours", "1 day",
+    "7 days", "1 week",
+    "365.25 days", "1 year",
+    "30.4167 weeks", "1 month",
+    "52 weeks", "1 year",
+    "12 months", "1 year",
+    "10 years", "1 decade",
+    "100 years", "1 century",
+    "1000 years", "1 millennium",
 
     # Data size in bits (both SI and binary)
-    "1000 bits", "1 kilobits",
-    "1024 bits", "1 kibibits",
-    "1000 kilobits", "1 megabits",
-    "1024 kibibits", "1 mebibits",
-    "1000 megabits", "1 gigabits",
-    "1024 mebibits", "1 gibibits",
-    "1000 gigabits", "1 terabits",
-    "1024 gibibits", "1 tebibits",
-    "1000 terabits", "1 petabits",
-    "1024 petabits", "1 pebibits",
+    "1000 bits", "1 kilobit",
+    "1024 bits", "1 kibibit",
+    "1000 kilobits", "1 megabit",
+    "1024 kibibits", "1 mebibit",
+    "1000 megabits", "1 gigabit",
+    "1024 mebibits", "1 gibibit",
+    "1000 gigabits", "1 terabit",
+    "1024 gibibits", "1 tebibit",
+    "1000 terabits", "1 petabit",
+    "1024 petabits", "1 pebibit",
     # Data size in bytes (both SI and binary)
-    "8 bits", "1 bytes",
-    "1000 bytes", "1 kilobytes",
-    "1024 bytes", "1 kibibytes",
-    "1000 kilobytes", "1 megabytes",
-    "1024 kibibytes", "1 mebibytes",
-    "1000 megabytes", "1 gigabytes",
-    "1024 mebibytes", "1 gibibytes",
-    "1000 gigabytes", "1 terabytes",
-    "1024 gibibytes", "1 tebibytes",
-    "1000 terabytes", "1 petabytes",
-    "1024 petabytes", "1 pebibytes",
+    "8 bits", "1 byte",
+    "1000 bytes", "1 kilobyte",
+    "1024 bytes", "1 kibibyte",
+    "1000 kilobytes", "1 megabyte",
+    "1024 kibibytes", "1 mebibyte",
+    "1000 megabytes", "1 gigabyte",
+    "1024 mebibytes", "1 gibibyte",
+    "1000 gigabytes", "1 terabyte",
+    "1024 gibibytes", "1 tebibyte",
+    "1000 terabytes", "1 petabyte",
+    "1024 petabytes", "1 pebibyte",
 
     # Energy
-    "1000 millijoules", "1 joules",
-    "1000 joules", "1 kilojoules",
-    "1 joules", "6_241_509_744_511_500_288 electronvolts",
+    "1000 millijoules", "1 joule",
+    "1000 joules", "1 kilojoule",
+    "1 joule", "6_241_509_744_511_500_288 electronvolts",
     # Power
-    "1000 milliwatts", "1 watts",
-    "1000 watts", "1 kilowatts",
-    "1000 kilowatts", "1 megawatts",
-    "1000 megawatts", "1 gigawatts",
-    "1 watts", "1 kilojoules per second",
+    "1000 milliwatts", "1 watt",
+    "1000 watts", "1 kilowatt",
+    "1000 kilowatts", "1 megawatt",
+    "1000 megawatts", "1 gigawatt",
+    "1 watt", "1 kilojoule per second",
     # Voltage
-    "1000 microvolts", "1 millivolts",
-    "1000 millivolts", "1 volts",
-    "1000 volts", "1 kilovolts",
+    "1000 microvolts", "1 millivolt",
+    "1000 millivolts", "1 volt",
+    "1000 volts", "1 kilovolt",
     # Current
-    "1000 microamperes", "1 milliamperes",
-    "1000 milliamperes", "1 amperes",
+    "1000 microamperes", "1 milliampere",
+    "1000 milliamperes", "1 ampere",
     # Charge
-    "1000 microcoulombs", "1 millicoulombs",
-    "1000 millicoulombs", "1 coulombs",
-    "1 amperes", "1 coulombs per second",
+    "1000 microcoulombs", "1 millicoulomb",
+    "1000 millicoulombs", "1 coulomb",
+    "1 ampere", "1 coulomb per second",
 
     # Frequency
     "1000 hertz", "1 kilohertz",
@@ -206,50 +206,50 @@ table = [
     "1000 gigahertz", "1 terahertz",
 
     # Length (metric)
-    "1000 nanometers", "1 micrometers",
-    "1000 micrometers", "1 millimeters",
-    "1000 millimeters", "1 meters",
-    "100 centimeters", "1 meters",
-    "1000 meters", "1 kilometers",
+    "1000 nanometers", "1 micrometer",
+    "1000 micrometers", "1 millimeter",
+    "1000 millimeters", "1 meter",
+    "100 centimeters", "1 meter",
+    "1000 meters", "1 kilometer",
     # Length (imperial)
-    "12 inches", "1 feet",
-    "3 feet", "1 yards",
-    "5280 feet", "1 miles",
-    "6076 feet", "1 nautical miles",
+    "12 inches", "1 foot",
+    "3 feet", "1 yard",
+    "5280 feet", "1 mile",
+    "6076 feet", "1 nautical mile",
     # Length (cross-system)
-    "1 inches", "2.54 centimeters",
+    "1 inch", "2.54 centimeters",
 
     # Mass (metric)
-    "1000 micrograms", "1 milligrams",
-    "1000 milligrams", "1 grams",
-    "1000 grams", "1 kilograms",
-    "1000 kilograms", "1 metric tons",
+    "1000 micrograms", "1 milligram",
+    "1000 milligrams", "1 gram",
+    "1000 grams", "1 kilogram",
+    "1000 kilograms", "1 metric ton",
     # Weight (imperial)
-    "16 ounces", "1 pounds",
-    "14 pounds", "1 stones",
-    "2000 pounds", "1 tons",
+    "16 ounces", "1 pound",
+    "14 pounds", "1 stone",
+    "2000 pounds", "1 ton",
     # Mass/weight (cross-system)
-    "28.3495 grams", "1 ounces",
+    "28.3495 grams", "1 ounce",
 
     # Pressure
-    "100000 pascals", "1 bars",
+    "100000 pascals", "1 bar",
     "133.322 pascals", "1 torr",
-    "760 torr", "1 atmospheres",
+    "760 torr", "1 atmosphere",
 
     # Volume (metric)
-    "1000 milliliters", "1 liters",
-    "1000 liters", "1 cubic meters",
+    "1000 milliliters", "1 liter",
+    "1000 liters", "1 cubic meter",
     # Volume (US imperial)
-    "1 cubic inches", "0.554113 fluid ounces",
-    "1728 cubic inches", "1 cubic feet",
-    "240 milliliters", "1 cups",  # also cross-system
-    "48.6922 teaspoons", "1 cups",
-    "16 fluid ounces", "1 pints",
-    "2 pints", "1 quarts",
-    "4 quarts", "1 gallons",
-    "256 tablespoons", "1 gallons",
-    "3 teaspoons", "1 tablespoons",
+    "1 cubic inch", "0.554113 fluid ounces",
+    "1728 cubic inches", "1 cubic foot",
+    "240 milliliters", "1 cup",  # also cross-system
+    "48.6922 teaspoons", "1 cup",
+    "16 fluid ounces", "1 pint",
+    "2 pints", "1 quart",
+    "4 quarts", "1 gallon",
+    "256 tablespoons", "1 gallon",
+    "3 teaspoons", "1 tablespoon",
 
     # Particles
-    "1 moles", "6.0221409e+23 molecules",
+    "1 mole", "6.0221409e+23 molecules",
 ]

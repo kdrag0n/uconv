@@ -24,8 +24,13 @@ def find_shortest_path(graph, start, goal):
 
         # Visit node if not already visited
         if node not in visited:
+            # Attempt to get neighbors; if node doesn't exist, bail out
+            try:
+                neighbors = graph[node.to_unit]
+            except KeyError:
+                return None
+
             # Go through all neighbors
-            neighbors = graph[node.to_unit]
             for neighbor in neighbors:
                 # Extend current path with new step (this neighbor)
                 new_path = [*path, neighbor]

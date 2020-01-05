@@ -93,7 +93,7 @@ miles = ["mile",  "mi"]
 # Mass (metric)
 micrograms = ["microgram",  "µg", "ug"]
 milligrams = ["milligram",  "mg"]
-grams = ["grams",  "g"]
+grams = ["gram",  "g"]
 kilograms = ["kilogram",  "kg"]
 "metric tons" = ["metric ton",  "mt", "Mt"]
 # Weight (imperial)

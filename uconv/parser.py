@@ -31,8 +31,19 @@ def parse_table(path):
     for plural_name, (singular_name, *aliases) in doc["units"].items():
         unit = data.Unit(plural_name, singular_name, aliases)
 
-        for name in (plural_name, singular_name, *aliases):
-            units[name] = unit
+        if plural_name in units:
+            raise ValueError(f"Duplicate plural unit name '{plural_name}'")
+        units[plural_name] = unit
+
+        # Duplicates are normal for units with plural == singular
+        if singular_name in units and plural_name != singular_name:
+            raise ValueError(f"Duplicate singular unit name '{singular_name}'")
+        units[singular_name] = unit
+
+        for alias in aliases:
+            if alias in units:
+                raise ValueError(f"Duplicate unit alias name '{alias}'")
+            units[alias] = unit
 
     # Populate graph and link table
     graph = {}

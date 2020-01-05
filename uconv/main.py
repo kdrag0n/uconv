@@ -2,7 +2,7 @@ import argparse
 import locale
 
 from . import ansi, parser
-from .converter import Converter
+from .converter import ConversionError, Converter
 
 
 def parse_args():
@@ -42,11 +42,11 @@ def main():
         return 1
 
     converter = Converter(units, graph, debug=args.debug)
-    converted_amount = converter.convert(args.from_amount, from_unit, to_unit)
-
-    if converted_amount is None:
-        print(ansi.red(f"No path from {from_unit} to {to_unit}"))
+    try:
+        converted_amount = converter.convert(args.from_amount, from_unit, to_unit)
+    except ConversionError as e:
+        print(ansi.red(str(e)))
         return 1
-    else:
-        print(f"{ansi.bold(from_unit.render(args.from_amount))} => {ansi.bold(to_unit.render(converted_amount))}")
-        return 0
+
+    print(f"{ansi.bold(from_unit.render(args.from_amount))} => {ansi.bold(to_unit.render(converted_amount))}")
+    return 0

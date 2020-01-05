@@ -90,8 +90,11 @@ class Conversion(TupleHash):
     def __repr__(self):
         return f"Conversion(from=({self.from_amount}, {self.from_unit.plural_name}), to=({self.to_amount}, {self.to_unit.plural_name}))"
 
-    def convert(self, amount):
-        return amount * self.factor
+    def convert(self, amount, op="*"):
+        if op == "*":
+            return amount * self.factor
+        else:
+            return amount / self.factor
 
     def to_tuple(self):
         return self.from_unit, self.to_unit, self.factor

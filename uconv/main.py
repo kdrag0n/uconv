@@ -26,13 +26,13 @@ def main():
     units, graph = parser.parse_table("units.toml")
 
     try:
-        from_unit = units[args.from_unit]
+        from_unit = parser.parse_compound(units, args.from_unit)
     except KeyError:
         print(ansi.red(f"Unrecognized source unit '{args.from_unit}'"))
         return 1
 
     try:
-        to_unit = units[args.to_unit]
+        to_unit = parser.parse_compound(units, args.to_unit)
     except KeyError:
         print(ansi.red(f"Unrecognized destination unit '{args.to_unit}'"))
         return 1

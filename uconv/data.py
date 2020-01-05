@@ -42,12 +42,20 @@ class CompoundUnit(TupleHash):
     def __init__(self, units):
         self.units = tuple(units)
 
-    def render(self, amount):
+    def render_name(self, plural):
         # Render compound name: first unit can be plural, others are always singular
-        first_name = self.units[0].singular_name if amount == 1 else self.units[0].plural_name
+        first_name = self.units[0].plural_name if plural else self.units[0].singular_name
         other_names = [unit.singular_name for unit in self.units[1:]]
-        name = " per ".join([first_name, *other_names])
+        return " per ".join([first_name, *other_names])
 
+    def __str__(self):
+        return self.render_name(True)
+
+    def __repr__(self):
+        return f"CompoundUnit(units={self.units})"
+
+    def render(self, amount):
+        name = self.render_name(amount == 1)
         amount_val = int(amount) if amount.is_integer() else amount
         return f"{amount_val:n} {name}"
 

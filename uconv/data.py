@@ -36,6 +36,29 @@ class Unit(TupleHash):
         return self.singular_name, self.plural_name, self.aliases
 
 
+class CompoundUnit(TupleHash):
+    """Information about a compound unit."""
+
+    def __init__(self, units):
+        self.units = tuple(units)
+
+    def render(self, amount):
+        # Render compound name: first unit can be plural, others are always singular
+        first_name = self.units[0].singular_name if amount == 1 else self.units[0].plural_name
+        other_names = [unit.singular_name for unit in self.units[1:]]
+        name = " per ".join([first_name, *other_names])
+
+        amount_val = int(amount) if amount.is_integer() else amount
+        return f"{amount_val:n} {name}"
+
+    def to_tuple(self):
+        # Pass singular units through
+        if len(self.units) == 1:
+            return self.units[0].to_tuple()
+        else:
+            return self.units
+
+
 class Conversion(TupleHash):
     """Information about a single conversion between two units, used as links in the graph."""
 

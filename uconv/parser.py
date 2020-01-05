@@ -9,8 +9,17 @@ from . import data
 
 def parse_compound(units, cmp_str):
     # both " per " and "/", but with any amount of whitespace
-    splitter = (s.split("/") for s in re.split(r"\s+per\s+", cmp_str))
-    units = list(map(lambda unit_str: units[unit_str], itertools.chain.from_iterable(splitter)))
+    unit_split = list(itertools.chain.from_iterable(s.split("/") for s in re.split(r"\s+per\s+", cmp_str)))
+
+    # A unit recognized as singular but present in the unit table *might* be a compound alias
+    if len(unit_split) == 1 and unit_split[0] in units:
+        unit = units[unit_split[0]]
+        # If it is, return it directly
+        if isinstance(unit, data.CompoundUnit):
+            return unit
+
+    # Otherwise, construct a compound unit out of the unit splits
+    units = list(map(lambda unit_str: units[unit_str], unit_split))
     return data.CompoundUnit(units)
 
 
@@ -44,6 +53,13 @@ def parse_table(path):
             if alias in units:
                 raise ValueError(f"Duplicate unit alias name '{alias}'")
             units[alias] = unit
+
+    # Add compound aliases to unit table
+    for alias, unit in doc["compound_aliases"].items():
+        if alias in units:
+            raise ValueError(f"Duplicate compound unit alias name '{alias}")
+
+        units[alias] = parse_compound(units, unit)
 
     # Populate graph and link table
     graph = {}

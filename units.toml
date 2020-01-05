@@ -1,4 +1,6 @@
-# All units specified in the conversion table MUST ALSO be included in this unit table!
+# All units specified in the conversion table MUST ALSO be declared in this unit table!
+# Compound units do NOT need to be declared, but their components do.
+# For example, km/h does not need to be declared but "km" and "h" do.
 
 [units]
 # Format: plural_form = ["singular form",  "alias 1", "alias 2", ...]

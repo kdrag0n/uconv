@@ -25,21 +25,21 @@ class Converter:
 
             # Operation for the first unit is the same, but subsequent divided units are the opposite
             op = "*" if idx == 0 else "/"
-            amount = self.convert(amount, from_unit, to_unit, op)
+            amount = self.convert(amount, from_unit, to_unit, op, in_compound=True)
 
         return amount
 
-    def convert(self, from_amount, from_unit, to_unit, op="*"):
-        try:
-            self.dbg("Looking for simple conversion path...")
-            path = search.find_shortest_path(self.graph, from_unit, to_unit)
-        except KeyError:
-            self.dbg("Not found, looking for compound conversion paths...")
-            return self.compound_convert(from_amount, from_unit, to_unit)
+    def convert(self, from_amount, from_unit, to_unit, op="*", in_compound=False):
+        self.dbg("Looking for simple conversion path...")
+        path = search.find_shortest_path(self.graph, from_unit, to_unit)
 
         # None means no path is available
         if path is None:
-            raise ConversionError(f"No path from {from_unit} to {to_unit}")
+            if in_compound:
+                raise ConversionError(f"No path from {from_unit} to {to_unit}")
+            else:
+                self.dbg("Not found, looking for compound conversion paths...")
+                return self.compound_convert(from_amount, from_unit, to_unit)
 
         friendly_path = ", ".join(map(str, path))
         self.dbg(f"Found conversion path: {friendly_path}")

@@ -63,7 +63,7 @@ def parse_table(path):
 
     # Populate graph and link table
     graph = {}
-    for from_pair, to_pair in zip(*[iter(doc["conversions"]["table"])] * 2):
+    for from_pair, to_pair in doc["conversions"].items():
         # Extract amounts and units from pairs
         from_amount, from_unit = parse_str_pair(units, from_pair)
         to_amount, to_unit = parse_str_pair(units, to_pair)

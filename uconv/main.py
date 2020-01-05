@@ -23,7 +23,11 @@ def main():
     locale.setlocale(locale.LC_ALL, "")
 
     args = parse_args()
-    units, graph = parser.parse_table("units.toml")
+    try:
+        units, graph = parser.parse_table("units.toml")
+    except ValueError as e:
+        print(ansi.red(str(e)))
+        return 1
 
     try:
         from_unit = parser.parse_compound(units, args.from_unit)

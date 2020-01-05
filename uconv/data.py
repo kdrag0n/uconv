@@ -51,12 +51,18 @@ class CompoundUnit(TupleHash):
         amount_val = int(amount) if amount.is_integer() else amount
         return f"{amount_val:n} {name}"
 
-    def to_tuple(self):
+    def __hash__(self):
         # Pass singular units through
         if len(self.units) == 1:
-            return self.units[0].to_tuple()
+            return hash(self.units[0].to_tuple())
         else:
-            return self.units
+            return hash(self.to_tuple())
+
+    def __eq__(self, other):
+        return hash(self) == hash(other)
+
+    def to_tuple(self):
+        return self.units
 
 
 class Conversion(TupleHash):

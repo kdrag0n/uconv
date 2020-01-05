@@ -130,6 +130,14 @@ moles = ["mole",  "mol"]
 molecules = ["molecule"]
 
 
+[compound_aliases]
+# This table is for aliasing compound units.
+# For example, "miles per hour" is commonly known as "mph", which doesn't follow
+# the standard "X per X" or "X/X" notation. As a result, it needs to be explicitly
+# aliased here.
+mph = "mi/h"
+
+
 [conversions]
 # Format: "[from amount] [from unit]", '[to amount] [to unit]",
 # Any unit aliases defined in the table above can be used here.

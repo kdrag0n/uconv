@@ -186,7 +186,7 @@ table = [
     "1000 watts", "1 kilowatt",
     "1000 kilowatts", "1 megawatt",
     "1000 megawatts", "1 gigawatt",
-    "1 watt", "1 kilojoule per second",
+    "1 watt", "1 joule per second",
     # Voltage
     "1000 microvolts", "1 millivolt",
     "1000 millivolts", "1 volt",

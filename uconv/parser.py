@@ -1,3 +1,5 @@
+import itertools
+import re
 from pathlib import Path
 
 import toml
@@ -5,10 +7,17 @@ import toml
 from . import data
 
 
+def parse_compound(units, cmp_str):
+    # both " per " and "/", but with any amount of whitespace
+    splitter = (s.split("/") for s in re.split(r"\s+per\s+", cmp_str))
+    units = list(map(lambda unit_str: units[unit_str], itertools.chain.from_iterable(splitter)))
+    return data.CompoundUnit(units)
+
+
 def parse_str_pair(units, pair):
     amount_str, unit_name = pair.split(None, 1)
     amount = float(amount_str)
-    unit = units[unit_name]
+    unit = parse_compound(units, unit_name)
 
     return amount, unit
 

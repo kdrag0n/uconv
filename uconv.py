@@ -2,4 +2,5 @@
 
 from uconv.main import main
 
-exit(main())
+if __name__ == "__main__":
+    exit(main())
